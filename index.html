@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="header">
+      <h2>My Library</h2>
+      <div id="btn-new">
+        <button>+ Add New Book</button>
+      </div>
+    </div>
+    <hr />
+    <div class="books">
+      <div class="book">
+        <p class="header-p">Alice's Adventures in Wonderland</p>
+        <p>Lewis Carroll</p>
+        <br>
+        <p>200 Pages</p>
+          <div class="buttons">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+            <button id="remove">Remove</button>
+          </div>
+      </div>
+      <div class="book">
+        <p class="header-p">The Hobbit</p>
+        <br>
+        <p>J.R.R. Tolkien</p>
+          <p>310 Pages</p>
+          <div class="buttons">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+            <button id="remove">Remove</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
