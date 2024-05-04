@@ -193,6 +193,10 @@ dialog#newBookDialog.open {
 
   }
   
+dialog#newBookDialog {
+    display: none;
+}
+  
   /* Style for the backdrop */
   dialog::backdrop {
     background-color: var(--gray);

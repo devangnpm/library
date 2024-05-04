@@ -12,7 +12,7 @@ function Book(title,author,pages,isRead) {
     this.pages = pages;
     this.read = isRead;
     this.info = function () {
-        let readStatus = this.isRead ? "read" : "not read";
+        let readStatus = this.isRead ? "true" : "false";
         let info = `${this.title} by ${this.author}, ${this.pages} pages ${this.read} yet`;
         return info;
     }
@@ -36,19 +36,18 @@ dialogAddBtn.addEventListener('click', function addBookToLibrary() {
     let getBookTitle = document.getElementById('titleInput').value;
     let getBookAuthor = document.getElementById('authorInput').value;
     let getBookPages = document.getElementById('pagesInput').value;
-    let getBookRead = document.getElementById('haveRead').checked ? 'read' : 'not read';
+    let getBookRead = document.getElementById('haveRead').checked ? 'true' : 'false';
 
     
     const bookObject = new Book(getBookTitle,getBookAuthor,getBookPages,getBookRead);
     myLibrary.push(bookObject);
-    
+
     displayBookOnCard([bookObject]);
 
     document.getElementById('titleInput').value = '';
     document.getElementById('authorInput').value = '';
     document.getElementById('pagesInput').value = '';
     document.getElementById('haveRead').checked = false;
-
     
 });
 
@@ -58,7 +57,6 @@ console.log('First Book',myLibrary[0]);
 console.log('Second Book',myLibrary[1]);
 */
 
-//This removes the book card when clicked on remove button//
 
 booksContainer.addEventListener('click', (event) => {
     if (event.target && event.target.nodeName === 'BUTTON' && event.target.textContent === 'Remove') {
@@ -77,8 +75,15 @@ addNewBookButton.addEventListener('click', () => {          //Event handling for
     
 });
 
+dialogAddBtn.addEventListener('click', () => {
+    newBookDialog.close();
+    newBookDialog.classList.remove('open');
+
+});
+
 dialogCloseBtn.addEventListener('click', () => {          // Event handling for dialog close (X) button //
     newBookDialog.close();
+    newBookDialog.classList.remove('open');
 });
 
 
@@ -122,6 +127,7 @@ function displayBookOnCard(books) {
 
         const booksContainer = document.querySelector('.books');
         booksContainer.appendChild(newBook);
+
 
     });
 }
