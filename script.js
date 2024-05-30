@@ -6,27 +6,41 @@ const booksContainer = document.querySelector('.books');
 const myLibrary =[]; 
 
 // this is Book Constructor func//
-function Book(title,author,pages,isRead) {
+// function Book(title,author,pages,isRead) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = isRead;
+//     this.info = function () {
+//         let readStatus = this.isRead ? "true" : "false";
+//         let info = `${this.title} by ${this.author}, ${this.pages} pages ${this.read} yet`;
+//         return info;
+//     }
+// }
+
+// Refactored from Book Constructor to Book Class 
+class Book {
+    constructor(title,author,pages,isRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = isRead;
-    this.info = function () {
-        let readStatus = this.isRead ? "true" : "false";
+    }
+
+    bookInfo () {
         let info = `${this.title} by ${this.author}, ${this.pages} pages ${this.read} yet`;
         return info;
     }
 }
 
 /*
-
 // this is initial book or test book creation using Obj constructor and pushing into the myLib arr //
+
 const theHobbit = new Book('The Hobbit','J.R.R Tolkien','295','not read');
 myLibrary.push(theHobbit);
 console.log(theHobbit);
 
 console.log(theHobbit.info());
-
 */
 
 
@@ -75,7 +89,7 @@ addNewBookButton.addEventListener('click', () => {          //Event handling for
     
 });
 
-dialogAddBtn.addEventListener('click', () => {
+dialogAddBtn.addEventListener('click', () => {   // Event handling for the 'Add' btn inside dialog //
     newBookDialog.close();
     newBookDialog.classList.remove('open');
 
